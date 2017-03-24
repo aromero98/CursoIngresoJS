@@ -1,0 +1,22 @@
+# depslib dependency file v1.0
+1490314757 source:d:\programacion\clase 03\func.c
+
+1490314026 source:d:\programacion\clase 03\main.c
+	<stdio.h>
+	<stdlib.h>
+	"func.h"
+
+1490314037 d:\programacion\clase 03\func.h
+
+1490317134 source:c:\users\alumno\desktop\clase 03\func.c
+	<stdio.h>
+	<stdlib.h>
+	"func.h"
+
+1490315564 source:c:\users\alumno\desktop\clase 03\main.c
+	<stdio.h>
+	<stdlib.h>
+	"func.h"
+
+1490317065 c:\users\alumno\desktop\clase 03\func.h
+
