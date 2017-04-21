@@ -1,86 +1,109 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "func.h"
-#define MAX 100
+struct S_Pelicula
+{
+    char titulo[50];
+    int year;
+    char nacionalidad[50];
+
+    int idDirector;
+    int idPelicula;
+    int flagLibre;
+};
+typedef struct S_Director director;
+
+struct S_Director
+{
+    char nombre[50];
+    char fechaDeNac [15];
+    char PaisOrigen [20];
+    int id;
+    int flagLibre;
+};
+typedef struct S_Pelicula pelicula;
+
+void cargarDirector(director directores [],int index,int id)
+{
+    printf("nombre director");
+    scanf("%s",directores[index].nombre);
+
+    printf("pais director");
+    scanf("%s",directores[index].PaisOrigen);
+
+    printf("fecha de nacimiento director");
+    scanf("%s",directores[index].fechaDeNac);
+    directores[index].id=id;
+    directores[index].flagLibre=0; //ocupamos el lugar del flag
+}
+void cargarPelicula(pelicula peliculas[],int index,int id)
+{
+    printf("titulo");
+    scanf("%s",peliculas[index].titulo);
+
+    printf("nacionalidad");
+    scanf("%s",peliculas[index].nacionalidad);
+
+    printf("director");
+    scanf("%d",peliculas[index].idDirector);
+}
+
+int buscarLugarVacioEnListaDirectores(director directores[],int len)//len tamaño de una lista
+{
+    int i;
+    for(i=0; i<len; i++)
+    {
+        if(directores[i].flagLibre ==1)
+        {
+            return i;
+        }
+
+    }
+    return -1;
+}
+
+int buscarLugarVacioEnListaPelicula(pelicula peliculas[],int len)//len tamaño de una lista
+{
+    int i;
+    for(i=0; i<len; i++)
+    {
+        if(peliculas[i].flagLibre ==1)
+        {
+            return i;
+        }
+
+    }
+    return -1;
+}
+
+int buscarDirectoresPorElIdEnLaListaDirectores(director directores[], int len, int idAbuscar)//para buscar o no el id
+{
+   int i;
+   for(i=0; i<len;i++)
+   {
+       if(directores[i].id==idAbuscar); //se busca si el id esta
+       return i;
+   }
+   return -1;
+}
+
 
 int main()
 {
-    int i, edad[MAX];
-    char respuesta;
-    int nroMax=0;
-    int nroMin=0;
-    int opcion;
-    int seguir='s';
-    do
+    int i;
+    printf("Hello world!\n");
+    director directores [500];
+    pelicula peliculas [1000];
+    int contadorGeneradorIdDirector=0;
+    int contadorGeneradorIdPelicula=0;
+    //hacer funciones para inicializar
+    for(i=0;i<500;i++)
     {
-
-        printf("1 - cargar las edades\n");
-        printf("2 - el numero maximo\n");
-        printf("3 - el numero minimo\n");
-        printf("4 - cargar los promedios\n");
-        printf("5 - salir");
-        scanf("%d", &opcion);
-
-        switch(opcion)
-        {
-        case 1:
-            for(i=0; i<MAX; i++)
-            {
-
-                printf("\nIngrese la edad de la persona %d: ", i);
-                scanf("%d", &edad[i]);
-
-                printf("\n\nDesea seguir ingresando? [s/n]");
-                fflush(stdin);
-                scanf("%c", &respuesta);
-                if(i==0)
-                {
-                    nroMax=edad[i];
-                    nroMin=edad[i];
-                }
-                else
-                {
-                    if(edad[i]>nroMax)
-                    {
-                        nroMax=edad[i];
-                    }
-                    else if(nroMin>edad[i])
-                    {
-                        nroMin=edad[i];
-                    }
-
-                }
-
-                if(respuesta!='s'&&respuesta!='S')
-                {
-                    break;
-                }
-            }
-                break;
-            case 2:
-                printf("el numero maximo es: %d", nroMax);
-                system("pause");
-                break;
-            case 3:
-                printf("el numero minimo es: %d", nroMin);
-                system("pause");
-                break;
-            case 4:
-                printf("\nEl promedio de las edades ingresadas es %.2f", promedio(edad, i+1));
-                system("pause");
-                break;
-            case 5:
-                seguir='n';
-                break;
-
-
-            }
-
-
-            system("cls");
-        }while(seguir=='s');
-
-
-
-    return 0;
+        directores[i].flagLibre=1;
+    }
+    for(i=0;i<1000;i++)
+    {
+        peliculas[i].flagLibre=1;
+    }
+return 0;
 }
+
