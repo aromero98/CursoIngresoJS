@@ -1,0 +1,10 @@
+# depslib dependency file v1.0
+1493924829 source:c:\users\agus\desktop\clases ejercicios\clase 4 (bibliotecas, j.adivinar)\main.c
+	<stdio.h>
+	<stdlib.h>
+
+1493845320 source:c:\users\agus\desktop\clases ejercicios\clase 4 (bibliotecas, j.adivinar)\funcion.c
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+
